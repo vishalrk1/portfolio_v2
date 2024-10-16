@@ -1,14 +1,15 @@
-import React, { useState } from "react";
-import { Input } from "../ui/input"; 
-import { Textarea } from "../ui/textarea"; 
+import { useState } from "react";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
 
 const ContactSection = () => {
-  const serviceId = import.meta.env.VITE_SERVICE_ID;
-  const templateId = import.meta.env.VITE_TEMPLATE_ID;
-  console.log(serviceId);
+  const serviceId = import.meta.env.VITE_SERVICE_ID as string;
+  const templateId = import.meta.env.VITE_TEMPLATE_ID as string;
+  const publicId = import.meta.env.VITE_PUBLIC_ID as string;
+
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -32,7 +33,7 @@ const ContactSection = () => {
       setLoading(false);
       return;
     }
-    emailjs.send(serviceId, templateId, formData).then(
+    emailjs.send(serviceId, templateId, formData, publicId).then(
       (_) => {
         toast.success("Message sent successfully 😎");
         setFormData({
@@ -42,9 +43,10 @@ const ContactSection = () => {
         });
         setLoading(false);
       },
-      (_) => {
+      (error) => {
         toast.error("Message not sent, please try again 😔😓");
         setLoading(false);
+        console.log(error);
       }
     );
   };
@@ -62,7 +64,8 @@ const ContactSection = () => {
       </h1>
       <div className="flex flex-col lg:flex-row gap-10 justify-center">
         <p className="text-neutral-400 text-sm md:text-lg m-2 w-full lg:w-1/2">
-          Hey, if you like my profile and want to connect with me, please drop a message. I will get back to you. Let's build something crazy!
+          Hey, if you like my profile and want to connect with me, please drop a
+          message. I will get back to you. Let's build something crazy!
         </p>
         <div className="w-full lg:w-1/2 flex flex-col gap-2">
           <Input
