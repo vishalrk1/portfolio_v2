@@ -1,0 +1,33 @@
+{
+  "root": [
+    "./src/app.tsx",
+    "./src/main.tsx",
+    "./src/vite-env.d.ts",
+    "./src/components/button.tsx",
+    "./src/components/cards/experiencecard.tsx",
+    "./src/components/magicui/animated-subscribe-button.tsx",
+    "./src/components/magicui/magic-card.tsx",
+    "./src/components/magicui/particles.tsx",
+    "./src/components/magicui/shimmer-button.tsx",
+    "./src/components/magicui/word-fade-in.tsx",
+    "./src/components/sections/contactme.tsx",
+    "./src/components/sections/footer.tsx",
+    "./src/components/sections/myexperience.tsx",
+    "./src/components/sections/myinfo.tsx",
+    "./src/components/sections/myprojects.tsx",
+    "./src/components/sections/myskills.tsx",
+    "./src/components/ui/badge.tsx",
+    "./src/components/ui/button.tsx",
+    "./src/components/ui/input.tsx",
+    "./src/components/ui/textarea.tsx",
+    "./src/lib/experiencedata.ts",
+    "./src/lib/projectsdata.ts",
+    "./src/lib/skillsdata.ts",
+    "./src/lib/socialsdata.ts",
+    "./src/lib/types.ts",
+    "./src/lib/utils.ts",
+    "./src/pages/homepage.tsx",
+    "./src/providers/toastprovider.tsx"
+  ],
+  "version": "5.6.2"
+}
