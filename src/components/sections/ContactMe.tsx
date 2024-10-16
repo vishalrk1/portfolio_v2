@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Input } from "../ui/input"; // Correctly imported Input component
-import { Textarea } from "../ui/textarea"; // Correctly imported Textarea component
+import { Input } from "../ui/input"; 
+import { Textarea } from "../ui/textarea"; 
 import { Button } from "../ui/button";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
 
 const ContactSection = () => {
-  const serviceId = "";
-  const templateId = "";
-  const publicId = "";
+  const serviceId = import.meta.env.VITE_SERVICE_ID;
+  const templateId = import.meta.env.VITE_TEMPLATE_ID;
+  console.log(serviceId);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -32,7 +32,7 @@ const ContactSection = () => {
       setLoading(false);
       return;
     }
-    emailjs.send(serviceId, templateId, formData, publicId).then(
+    emailjs.send(serviceId, templateId, formData).then(
       (_) => {
         toast.success("Message sent successfully 😎");
         setFormData({
@@ -71,7 +71,7 @@ const ContactSection = () => {
             placeholder="Your Name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full text-base p-4 py-6 rounded-lg border-1 bg-zinc-900"
+            className="w-full text-base text-neutral-300 placeholder:text-neutral-500 p-4 py-6 rounded-lg border-1 bg-neutral-900"
           />
           <Input
             type="text"
@@ -79,14 +79,14 @@ const ContactSection = () => {
             placeholder="Your Email"
             value={formData.email}
             onChange={handleChange}
-            className="text-neutral-700 w-full p-4 py-6 rounded-lg border-1 bg-zinc-900"
+            className="text-neutral-300 placeholder:text-neutral-500 w-full p-4 py-6 rounded-lg border-1 bg-neutral-900"
           />
           <Textarea
             name="message"
             value={formData.message}
             onChange={handleChange}
             placeholder="Your Message here...."
-            className="w-full resize-none h-52 p-4 py-6 rounded-lg border-1 bg-zinc-900"
+            className="w-full text-neutral-300 placeholder:text-neutral-500 resize-none h-52 p-4 py-6 rounded-lg border-1 bg-neutral-900"
           />
           <Button
             className="bg-white text-black my-2 w-max"

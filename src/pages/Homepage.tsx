@@ -35,20 +35,21 @@ function Homepage() {
   }, []);
   return (
     <div className="relative">
+      
       <main className="flex flex-col justify-center items-center gap-10 p-7 min-h-screen">
-        <Particles
-          className="inset-0 z-0 absolute"
-          ease={120}
-          quantity={200}
-          refresh
-        />
-        <MyInfo/>
-        <MyProjects/>
-        <MySkills/>
-        <MyExperience/>
-        <ContactMe/>
+        <MyInfo />
+        <MyProjects />
+        <MySkills />
+        <MyExperience />
+        <ContactMe />
         
       </main>
+      <Particles
+        className="inset-0 -z-10 absolute"
+        ease={120}
+        quantity={200}
+        refresh
+      />
     </div>
   );
 }
